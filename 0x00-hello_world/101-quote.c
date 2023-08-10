@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include <sys/syscall.h>
 
 /**
  * main - Writing str to stderr
@@ -11,6 +10,6 @@ int main(void)
 {
 	char str[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19,\n";
 
-	syscall(SYS_write, STDERR_FILENO, str, sizeof(str) - 1);
+	write(STDERR_FILENO, (const void *) str, sizeof(str) - 1);
 	return (1);
 }
