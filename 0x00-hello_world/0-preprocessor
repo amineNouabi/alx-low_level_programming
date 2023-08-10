@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -P -o c $(echo $CFILE)
+gcc -E -o c $CFILE
