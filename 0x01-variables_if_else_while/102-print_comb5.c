@@ -7,30 +7,27 @@
  */
 int main(void)
 {
-	int i, j, k, l;
+	int	t[2];
 
-	for (i = 0; i < 10; i++)
+	t[0] = 0;
+	while (t[0] <= 98)
 	{
-		for (j = 0; j < 9; j++)
+		t[1] = t[0] + 1;
+		while (t[1] <= 99)
 		{
-			for (k = i; k < 10; k++)
+			putchar((t[0] / 10) + 48);
+			putchar((t[0] % 10) + 48);
+			putchar(' ');
+			putchar((t[1] / 10) + 48);
+			putchar((t[1] % 10) + 48);
+			if (t[0] != 98)
 			{
-				for (l = j + 1; l < 10; l++)
-				{
-					putchar('0' + i);
-					putchar('0' + j);
-					putchar(' ');
-					putchar('0' + k);
-					putchar('0' + l);
-
-					if (j != 8 || i != 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
+				putchar(',');
+				putchar(' ');
 			}
+			t[1]++;
 		}
+		t[0]++;
 	}
 	putchar('\n');
 
