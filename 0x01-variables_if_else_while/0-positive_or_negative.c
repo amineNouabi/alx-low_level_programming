@@ -2,21 +2,21 @@
 #include<stdlib.h>
 #include<time.h>
 
-/*
- * main - generates a random number and checks its sign
+/**
+ *	main - generates a random number and checks its sign
  *
- * Return : Always 0
+ *	Return: Always 0
  *
  */
-int main (void)
+int main(void)
 {
 	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	
+
 	printf("%d is ", n);
-	if(n > 0)
+	if (n > 0)
 		printf("positive\n");
 	else if (n < 0)
 		printf("negative\n");
@@ -24,4 +24,6 @@ int main (void)
 		printf("zero\n");
 	return (0);
 }
+
+
 
