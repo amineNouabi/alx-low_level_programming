@@ -1,11 +1,10 @@
-#ifndef _PUTCHAR
-#define _PUTCHAR
+#ifndef MAIN_H
+#define MAIN_H
 
 int _putchar(int);
-#endif
-
-#ifndef PRINT_ALPHABET
-#define PRINT_ALPHABET
 
 void print_alphabet(void);
+
+void print_alphabet_x10(void);
+
 #endif
