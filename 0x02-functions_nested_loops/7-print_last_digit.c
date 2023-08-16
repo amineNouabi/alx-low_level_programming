@@ -4,7 +4,7 @@
  * @n: integer
  * Return: value of last digit
  */
-void print_last_digit(int n)
+int print_last_digit(int n)
 {
 	if (n < 0)
 		n *= -1;
