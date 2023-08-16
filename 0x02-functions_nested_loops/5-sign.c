@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_sign - Prints '+' or '-' depending on parametre sign
  * @n: positive or negative integer.
