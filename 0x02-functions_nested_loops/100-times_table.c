@@ -7,10 +7,10 @@
  */
 void print_times_table(int n)
 {
+	int number, factor, res;
+
 	if (n > 15 || n < 0)
 		return;
-
-	int number, factor, res;
 
 	number = 0;
 
