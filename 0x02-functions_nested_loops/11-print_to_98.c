@@ -12,18 +12,7 @@ void print_to_98(int n)
 
 	while (n != 98)
 	{
-		int current = n;
-
-		if (n < 0)
-		{
-			_putchar('-');
-			current *= -1;
-		}
-
-		printf("%d", current);
-
-		printf(", ");
-
+		printf("%d, ", n);
 		n += step;
 	}
 
