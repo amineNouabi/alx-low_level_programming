@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_to_98 - prints from given param to 98.
@@ -19,19 +20,12 @@ void print_to_98(int n)
 			current *= -1;
 		}
 
-		while (current != 0)
-		{
-			_putchar(current % 10 + '0');
-			current /= 10;
-		}
+		printf("%d", current);
 
-		_putchar(',');
-		_putchar(' ');
+		printf(", ");
 
 		n += step;
 	}
 
-	_putchar('9');
-	_putchar('8');
-	_putchar('\n');
+	printf("98\n");
 }
