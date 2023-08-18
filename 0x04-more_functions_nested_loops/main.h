@@ -3,5 +3,5 @@
 
 void _putchar(int);
 int _isupper(int);
-
+int _isdigit(int);
 #endif /* _MAIN_H_ */
