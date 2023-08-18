@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _isupper - check if char is upper
+ * _isdigit - check if char is a digit
  * @c: integer representing character
- * Return: 1 if upper, 0 otherwise
+ * Return: 1 if digit, 0 otherwise
  */
-int _isupper(int c)
+int _isdigit(int c)
 {
 	return (c >= '0' && c <= '9' ? 1 : 0);
 }
