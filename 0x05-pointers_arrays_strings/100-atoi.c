@@ -9,8 +9,6 @@ int _atoi(char *s)
 	int number = 0;
 	int sign = 1;
 
-	if (
-
 	while (*s)
 	{
 		if (*s == '-' && !number)
