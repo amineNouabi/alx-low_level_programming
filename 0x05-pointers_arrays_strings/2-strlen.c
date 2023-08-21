@@ -9,5 +9,5 @@ int _strlen(char *s)
 
 	while (s[count++]);
 
-	return (count);
+	return (count--);
 }
