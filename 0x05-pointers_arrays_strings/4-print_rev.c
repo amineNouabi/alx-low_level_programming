@@ -7,15 +7,13 @@
  */
 void print_rev(char *s)
 {
-	int count = 0;
+	int length = 0;
+	int i;
 
-	while (*s++)
-		count++;
+	while (s[length])
+		length++;
 
-	while (count)
-	{
-		s--;
-		_putchar(*s);
-	}
+	for (i = length - 1; i > -1; i++)
+		_putchar(s[i]);
 	_putchar('\n');
 }
