@@ -1,12 +1,13 @@
 #include "main.h"
 
 /**
- * _strcat - concatenates two strings
+ * _strncat - concatenates n bytes from src to dest.
  * @dest: Destination String
  * @src: Source String
+ * @n: Number of bytes to concate.
  * Return: Destination String
  */
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
 	unsigned int i;
 
@@ -15,9 +16,10 @@ char *_strcat(char *dest, char *src)
 		;
 	i--;
 
-	while (*src)
+	while (n-- && *src)
 		dest[i++] = *(src++);
 	dest[i] = '\0';
 
 	return (dest);
 }
+
