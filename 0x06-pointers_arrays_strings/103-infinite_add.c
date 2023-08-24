@@ -40,15 +40,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		n1_cursor++;
 	while (n2[n2_cursor])
 		n2_cursor++;
-	n1_cursor--;
-	n2_cursor--;
 
-	if (n1_cursor >= size_r || n2_cursor >= size_r)
+	if (n1_cursor + 1 > size_r || n2_cursor + 1 > size_r)
 		return (0);
 
-	/**
-	 * Add digits
-	 */
+	n1_cursor--;
+	n2_cursor--;
 	while (n1_cursor >= 0 || n2_cursor >= 0)
 	{
 		n1_digit = n1[n1_cursor] - '0';
@@ -56,19 +53,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		sum = carry + (n1_cursor >= 0 ? n1_digit : 0) +
 			(n2_cursor >= 0 ? n2_digit : 0);
 		carry = sum / 10;
+
 		r[r_cursor++] = (sum % 10) + '0';
+		if (r_cursor > size_r)
+			return (0);
 		n1_cursor--;
 		n2_cursor--;
 	}
 	if (carry > 0)
+	{
+		if (r_cursor + 1 >= size_r)
+			return (0);
 		r[r_cursor++] = carry + '0';
-	if (r_cursor >= size_r)
-		return (0);
+	}
 	r[r_cursor] = '\0';
-
-	/**
-	 * Reverse string
-	 */
 	rev_string(r);
 	return (r);
 }
