@@ -38,8 +38,8 @@ int	is_separator(char c)
 
 char *cap_string(char *str)
 {
-	unsigned int i;
-	int			 word;
+	unsigned int	i;
+	int				word;
 
 	i = 0;
 	word = 1;
@@ -48,10 +48,10 @@ char *cap_string(char *str)
 		if (word == 1)
 			to_upper(&str[i]);
 
-		if (!is_separator(str[i]))
-			word = 0;
-		else
+		if (is_separator(str[i]))
 			word = 1;
+		else
+			word = 0;
 		i++;
 	}
 	return (str);
