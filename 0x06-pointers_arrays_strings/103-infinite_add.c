@@ -36,9 +36,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int n1_cursor, n2_cursor, r_cursor, n1_digit, n2_digit, sum, carry;
 
 	n1_cursor = n2_cursor = r_cursor = carry = 0;
-	while (n1[n1_cursor] != '\0')
+	while (n1[n1_cursor])
 		n1_cursor++;
-	while (n2[n2_cursor] != '\0')
+	while (n2[n2_cursor])
 		n2_cursor++;
 	n1_cursor--;
 	n2_cursor--;
