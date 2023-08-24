@@ -62,7 +62,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (carry > 0)
 		r[r_cursor++] = carry + '0';
-	if (r_cursor > size_r)
+	if (r_cursor >= size_r)
 		return (0);
 	r[r_cursor] = '\0';
 
