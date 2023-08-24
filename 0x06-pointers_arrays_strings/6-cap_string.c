@@ -38,8 +38,8 @@ int	is_separator(char c)
 
 char *cap_string(char *str)
 {
-	unsigned int	i;
-	int				word;
+	unsigned int i;
+	int			 word;
 
 	i = 0;
 	word = 1;
