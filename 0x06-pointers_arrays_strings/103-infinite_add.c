@@ -56,6 +56,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		sum = carry + (n1_cursor >= 0 ? n1_digit : 0) +
 			(n2_cursor >= 0 ? n2_digit : 0);
 		carry = sum / 10;
+		if (r_cursor >= size_r)
+			return (0);
 		r[r_cursor++] = (sum % 10) + '0';
 		n1_cursor--;
 		n2_cursor--;
