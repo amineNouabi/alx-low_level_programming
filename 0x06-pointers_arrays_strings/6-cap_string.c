@@ -12,17 +12,6 @@ static void to_upper(char *c)
 }
 
 /**
-* to_lower - turn uppercase char into lowercase
-* @c: Character
-* Return: void
-*/
-static void to_lower(char *c)
-{
-	if (*c >= 'A' && *c <= 'Z')
-		*c += 32;
-}
-
-/**
  * is_separator - wraps separators
  * @c: Character
  * Return: 1 if is seperator and  0 otherwise.
@@ -58,8 +47,6 @@ char *cap_string(char *str)
 	{
 		if (word == 1)
 			to_upper(&str[i]);
-		else
-			to_lower(&str[i]);
 
 		if (!is_separator(str[i]))
 			word = 0;
