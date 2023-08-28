@@ -10,7 +10,7 @@
 char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i = 0, j = 0;
-	
+
 	if (!haystack || !needle)
 		return (0);
 
@@ -21,7 +21,11 @@ char *_strstr(char *haystack, char *needle)
 			j++;
 		if (!needle[j])
 			return (haystack + i);
-		i++;
+
+		if (j > 0)
+			i += j;
+		else
+			i++;
 	}
 	return (0);
 }
