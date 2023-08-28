@@ -9,6 +9,7 @@ unsigned int _strspn(char *, char *);
 char *_strprbk(char *, char *);
 char *_strstr(char *, char *);
 void print_chessboard(char (*a)[8]);
-void print_diagsums(int *a, int size);
+void print_diagsums(int *, int);
+void set_string(char **, char *);
 
 #endif /* _MAIN_H_ */
