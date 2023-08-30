@@ -1,22 +1,17 @@
 #include "main.h"
 
-
 /**
-* _strlen - calculates length of a string
-* @s: String
-* Return: Number of characters in string
+* _strlen_recursion - counts string length with recursion.
+* @s: String.
+*
+* Return: length of the provided String.
 */
-int _strlen(char *s)
+int _strlen_recursion(char *s)
 {
-	int count = 0;
-
-	if (!s)
+	if (!s || !*s)
 		return (0);
-	while (s[count++])
-		;
-	return (--count);
+	return (1 + _strlen_recursion(s + 1));
 }
-
 
 /**
  * palindrome_recursion - recursion logic to check if palindrome
