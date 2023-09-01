@@ -3,42 +3,48 @@
 /**
  * _atoi - Parses string to integer
  * @s: String
- * Return: Integer
+ * Return: Positive integer if success, -1 if error
  */
 int _atoi(char *s)
 {
 	int number = 0;
-	int sign = 1;
 
 	if (!s)
 		return (0);
 
 	while (*s)
 	{
-		if (*s == '-' && !number)
-			sign *= -1;
 		if (*s >= '0' && *s <= '9')
-			number = number * 10 + (*s - '0') * sign;
-		else if (number)
-			break;
+			number = number * 10 + (*s - '0');
+		else
+			return (-1);
 		s++;
 	}
 	return (number);
 }
 
 /**
- * main - Prints the result of multiplication of two numbers
+ * main - Prints the result of addition of argc - 1 numbers
  * @argc: Number of arguments
  * @argv: Array of arguments
+ * 
  * Return: 0 if success, 1 if error
  */
 int main(int argc, char **argv)
 {
-	if (argc != 3)
+	int i, sum = 0;
+
+	for (i = 1; i < argc; i++)
 	{
-		printf("Error\n");
-		return (1);
+		int number = _atoi(argv[i]);
+
+		if (number == -1)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum += number;
 	}
-	printf("%d\n", _atoi(argv[1]) * _atoi(argv[2]));
+	printf("%d\n", sum);
 	return (0);
 }
