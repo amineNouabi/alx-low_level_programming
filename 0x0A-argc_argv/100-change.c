@@ -21,11 +21,12 @@ int main(int argc, char **argv)
 
 	number = atoi(argv[1]);
 
-	for (i = 0; i < 5; i++)
-	{
-		minimum += number / coins[i];
-		number %= coins[i];
-	}
+	if (number > 0)
+		for (i = 0; i < 5; i++)
+		{
+			minimum += number / coins[i];
+			number %= coins[i];
+		}
 
 
 	printf("%d\n", minimum);
