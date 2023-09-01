@@ -27,7 +27,7 @@ int _atoi(char *s)
  * main - Prints the result of addition of argc - 1 numbers
  * @argc: Number of arguments
  * @argv: Array of arguments
- * 
+ *
  * Return: 0 if success, 1 if error
  */
 int main(int argc, char **argv)
