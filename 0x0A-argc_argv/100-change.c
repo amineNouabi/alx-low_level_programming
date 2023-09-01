@@ -1,27 +1,5 @@
 #include <stdio.h>
-
-/**
- * _atoi - Parses string to integer
- * @s: String
- * Return: Positive integer if success, -1 if error
- */
-int _atoi(char *s)
-{
-	int number = 0;
-
-	if (!s)
-		return (0);
-
-	while (*s)
-	{
-		if (*s >= '0' && *s <= '9')
-			number = number * 10 + (*s - '0');
-		else
-			return (-1);
-		s++;
-	}
-	return (number);
-}
+#include <stdlib.h>
 
 /**
  * main - Prints minimal number of coins to make change for an amount of money
@@ -41,7 +19,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	number = _atoi(argv[1]);
+	number = atoi(argv[1]);
 
 	for (i = 0; i < 5; i++)
 	{
