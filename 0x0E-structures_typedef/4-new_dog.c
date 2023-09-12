@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
  * _strlen - calculates length of a string
@@ -46,14 +47,13 @@ char *_strcpy(char *dest, char *src)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
-	int i;
 
 	new_dog = malloc(sizeof(dog_t));
 	if (!new_dog)
 		return (0);
 	new_dog->age = age;
 
-	new_dog->name = malloc(sizeof(name) / sizeof(char) + 1);
+	new_dog->name = malloc(_strlen(name) + 1);
 	if (!new_dog->name)
 	{
 		free(new_dog);
@@ -61,7 +61,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	}
 	_strcpy(new_dog->name, name);
 
-	new_dog->owner = malloc(sizeof(owner) / sizeof(char) + 1);
+	new_dog->owner = malloc(_strlen(owner) + 1);
 	if (!new_dog->owner)
 	{
 		free(new_dog->name);
