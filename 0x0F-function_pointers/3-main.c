@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
 	int (*f)(int, int);
 	int a, b;
+	char op;
 
 	if (argc != 4)
 	{
@@ -27,7 +28,9 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	if (!b && (*(argv[2]) == '/' || *(argv[2]) == '%'))
+	op = *argv[2];
+
+	if (!b && (op == '/' || op == '%'))
 	{
 		printf("Error\n");
 		exit(100);
