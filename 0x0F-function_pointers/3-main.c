@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 	}
 
 	f = get_op_func(argv[2]);
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
 	if (!f)
 	{
@@ -25,16 +27,12 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	if (!b && (argv[2][0] == '/' || argv[2][0] == '%'))
+	if (!b && (*(argv[2]) == '/' || *(argv[2]) == '%'))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
 	printf("%d\n", f(a, b));
-
 	return (0);
 }
