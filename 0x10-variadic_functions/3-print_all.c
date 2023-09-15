@@ -44,6 +44,6 @@ void print_all(const char * const format, ...)
 		if (format[j])
 			printf(", ");
 	}
-	printf("\n");
 	va_end(ap);
+	printf("\n");
 }
