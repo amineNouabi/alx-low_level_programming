@@ -28,19 +28,17 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				str = va_arg(ap, char *);
-				if (str)
+				if (!str)
+					str = "(nil)";
 					printf("%s", str);
-				else
-					printf("(nil)");
 				break;
 			default:
 				continue;
 		}
 		j = i;
-		while (format[j])
-			if (format[j] == 'c' || format[j] == 'i' || format[j] == 'f' ||
-					format[j] == 's' || !++j)
-				break;
+		while (format[j] != 'c' && format[j] != 'i' && format[j] != 'f' &&
+					format[j] != 's' && ++j)
+			;
 		if (format[j])
 			printf(", ");
 	}
