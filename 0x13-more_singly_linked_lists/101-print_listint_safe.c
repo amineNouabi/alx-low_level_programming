@@ -11,6 +11,7 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
+	unsigned long int add;
 	unsigned int count = 0, i;
 	listint_t *cursor = 0;
 	listint_t **visited = (listint_t **) malloc(TAB_SIZE * sizeof(listint_t *));
@@ -20,8 +21,8 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (!head)
 		return (0);
-
-	printf("[%p] %d\n", (void *) head, head->n);
+	add = (unsigned long int) head & 536870911;
+	printf("[%p] %d\n", (void *) add, head->n);
 	cursor = head->next;
 	visited[count++] = (listint_t *) head;
 
@@ -30,11 +31,13 @@ size_t print_listint_safe(const listint_t *head)
 		for (i = 0; i < count; i++)
 			if (visited[i] == cursor)
 			{
-				printf("-> [%p] %d\n", (void *) cursor, cursor->n);
+				add = (unsigned long int) cursor & 536870911;
+				printf("-> [%p] %d\n", (void *) add, cursor->n);
 				free(visited);
 				exit(98);
 			}
-		printf("[%p] %d\n", (void *) cursor, cursor->n);
+		add = (unsigned long int) cursor & 536870911;
+		printf("[%p] %d\n", (void *) add, cursor->n);
 		visited[count++] = cursor;
 		cursor = cursor->next;
 	}
