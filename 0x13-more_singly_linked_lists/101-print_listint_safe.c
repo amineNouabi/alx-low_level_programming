@@ -21,7 +21,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (!head)
 		return (0);
-	add = (unsigned long int) head & 536870911;
+	add = (unsigned long int) head % 268435456;
 	printf("[%p] %d\n", (void *) add, head->n);
 	cursor = head->next;
 	visited[count++] = (listint_t *) head;
@@ -31,12 +31,12 @@ size_t print_listint_safe(const listint_t *head)
 		for (i = 0; i < count; i++)
 			if (visited[i] == cursor)
 			{
-				add = (unsigned long int) cursor & 536870911;
+				add = (unsigned long int) cursor % 268435456;
 				printf("-> [%p] %d\n", (void *) add, cursor->n);
 				free(visited);
 				exit(98);
 			}
-		add = (unsigned long int) cursor & 536870911;
+		add = ((unsigned long int) cursor) % 268435456;
 		printf("[%p] %d\n", (void *) add, cursor->n);
 		visited[count++] = cursor;
 		cursor = cursor->next;
