@@ -1,11 +1,5 @@
 #include "main.h"
 
-#define BUFFER_SIZE 1024
-
-#define ARGS_ERRMSG "Usage: cp file_from file_to\n"
-#define READ_ERRMSG "Error: Can't read from file "
-#define WRITE_ERRMSG "Error: Can't write to "
-
 /**
  * error_handler - writes err msg base on status.
  * @argv: main arguments.
@@ -47,7 +41,7 @@ int main(int argc, char **argv)
 	if (argc != 3)
 		error_handler(argv, 97, -1, buffer);
 
-	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	buffer = malloc(sizeof(char) * 1024);
 	if (!buffer)
 		return (-1);
 
@@ -59,7 +53,7 @@ int main(int argc, char **argv)
 	if (fd_to < 0)
 		error_handler(argv, 99, -1, buffer);
 
-	while ((count = read(fd_from, buffer, BUFFER_SIZE)))
+	while ((count = read(fd_from, buffer, 1024)) > 0)
 		if (write(fd_to, buffer, count) != count)
 			error_handler(argv, 99, -1, buffer);
 
