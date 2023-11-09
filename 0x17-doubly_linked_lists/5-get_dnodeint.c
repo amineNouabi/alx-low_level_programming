@@ -4,6 +4,8 @@
  * get_dnodeint_at_index - gets node at index
  * @head: head of list.
  * @index: position of node
+ *
+ * Return: dlistint_t node or null if node doesn't exist.
  */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
