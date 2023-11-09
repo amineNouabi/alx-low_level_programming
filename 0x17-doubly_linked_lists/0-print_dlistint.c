@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
+
 /**
  * print_dlistint - Prints doubly linked list
  * @h: list's head.
@@ -18,5 +19,5 @@ size_t print_dlistint(const dlistint_t *h)
 		cursor = cursor->next;
 		len++;
 	}
-	return len;
+	return (len);
 }
