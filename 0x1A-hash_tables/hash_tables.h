@@ -48,4 +48,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 unsigned int _strlen(const char *s);
 char *_strdup(const char *str);
 
+hash_node_t *create_new_node(const char *key, const char *value);
+
 #endif /* HASH_TABLES_H */
