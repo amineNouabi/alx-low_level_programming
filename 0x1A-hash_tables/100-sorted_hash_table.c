@@ -91,6 +91,33 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 
 /**
+ * shash_table_get - retrieves a value associated with a key
+ * @ht: hash table to look into
+ * @key: is the key. key can not be an empty string
+ * Return: value associated with the element, or NULL if key couldnt be found
+ */
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	unsigned long index;
+	shash_node_t *cursor;
+
+	if (!ht || !ht->array || !key || !*key)
+		return (0);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	cursor = *(ht->array + index);
+	while (cursor)
+	{
+		if (!strcmp(cursor->key, key))
+			return (cursor->value);
+		cursor = cursor->next;
+	}
+
+	return (0);
+}
+
+
+/**
  * sht_insert_node - insert a node in a sorted doubly linked list
  *	for sorted hash map.
  * @sht: Sorted hash table
