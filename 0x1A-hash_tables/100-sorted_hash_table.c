@@ -263,33 +263,3 @@ char *_strdup(const char *str)
 
 	return (dup);
 }
-
-/**
- * key_index - Gives the index of a key
- * @key: Key to find
- * @size: Size of the array of the hash table
- *
- * Return: Index of the key
- */
-unsigned long int key_index(const unsigned char *key, unsigned long int size)
-{
-	return (hash_djb2(key) % size);
-}
-
-/**
- * hash_djb2 - Hash function implementing the djb2 algorithm
- * @str: String to hash
- *
- * Return: Hash value
- */
-unsigned long int hash_djb2(const unsigned char *str)
-{
-	unsigned long int hash;
-	int c;
-
-	hash = 5381;
-	while ((c = *str++))
-		hash = hash * 33 + c;
-
-	return (hash);
-}
