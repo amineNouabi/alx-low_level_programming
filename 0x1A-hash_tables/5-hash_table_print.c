@@ -1,6 +1,10 @@
 #include "hash_tables.h"
 
 
+/**
+ * hash_table_print - Prints a hash table
+ * @ht: Hash table
+ */
 void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *cursor;
@@ -18,11 +22,11 @@ void hash_table_print(const hash_table_t *ht)
 		while (cursor)
 		{
 			printf("'%s': '%s'", cursor->key, cursor->value);
-			if ((cursor = cursor->next))
+			cursor = cursor->next;
+			if (cursor)
 				printf(", ");
 			else
 				comma = 1;
-			
 		}
 		if (comma && *(ht->array + index))
 			printf(", ");
