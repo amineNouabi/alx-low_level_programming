@@ -1,4 +1,6 @@
-m.h
-main.c
-school.c
 school
+
+*.h
+*.c
+*.o
+*~
