@@ -1,0 +1,29 @@
+CC = gcc
+COMPILER = ${CC}
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean fclean oclean re
+
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	@$(COMPILER) $(CFLAGS) $^ -o $@
+
+$(OBJ): $(SRC)
+	@test -f m.h || { echo "m.h header file is missing"; exit 1; }
+	@$(COMPILER) $(CFLAGS) -c $^
+
+clean:
+	@-$(RM) *~ *.swp $(NAME)
+
+oclean:
+	@-$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
