@@ -11,12 +11,10 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(COMPILER) $(CFLAGS) $^ -o $@
-
-$(OBJ): $(SRC)
+$(NAME): $(SRC)
 	@test -f m.h || { echo "m.h header file is missing"; exit 1; }
 	@$(COMPILER) $(CFLAGS) -c $^
+	@$(COMPILER) $^ -o $@
 
 clean:
 	@-$(RM) *~ *.swp $(NAME)
