@@ -22,6 +22,13 @@ int interpolation_search(int *array, size_t size, int value)
 	right = size - 1;
 	while (left <= right)
 	{
+		if (left == right)
+		{
+			if (array[left] == value)
+				return (left);
+			return (-1);
+		}
+
 		i = left + ((float) (value - array[left]) /
 			(array[right] - array[left])) * (right - left);
 
