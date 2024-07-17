@@ -24,12 +24,11 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	cursor = list;
 	jump_to_index(&cursor, i);
 
-	while (1)
+	while (cursor)
 	{
-		if (cursor)
-			printf("Value checked at index [%ld] = [%d]\n", cursor->index, cursor->n);
+		printf("Value checked at index [%ld] = [%d]\n", cursor->index, cursor->n);
 
-		if (!cursor || cursor->n >= value)
+		if (cursor->n >= value)
 		{
 			printf("Value found between indexes [%ld] and [%ld]\n", i - jump, i);
 			break;
