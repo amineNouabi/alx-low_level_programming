@@ -21,7 +21,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	jump = sqrt(size);
 	i = jump;
-	jump_to_index(cursor = list, i);
+	cursor = list;
+	jump_to_index(&cursor, i);
 
 	while (1)
 	{
@@ -35,11 +36,12 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		}
 
 		i += jump;
-		jump_to_index(cursor, i);
+		jump_to_index(&cursor, i);
 	}
 
 	j = i - jump;
-	jump_to_index(cursor = list, j);
+	cursor = list;
+	jump_to_index(&cursor, j);
 
 	while (cursor && cursor->index <= i)
 	{
