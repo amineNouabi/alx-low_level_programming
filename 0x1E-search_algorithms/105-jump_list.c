@@ -16,7 +16,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t i, jump, j;
 	listint_t *cursor;
 
-	if (!list)
+	if (!list || !size)
 		return (0);
 
 	jump = sqrt(size);
